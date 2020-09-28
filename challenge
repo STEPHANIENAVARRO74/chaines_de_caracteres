@@ -1,0 +1,32 @@
+<?php
+// $ pour les trois messages à déchiffrer //
+$msg_1 = '0@sn9sirppa@#?ia\'jgtvryko1';
+$msg_2 = 'q8e?wsellecif@#?sel@#?setuotpazdsy0*b9+mw@x1vj';
+$msg_3 = 'aopi?sgnirts@#?sedhtg+p9l!';
+
+// strlen => permet de connaitre la taille d'une chaîne => à /2 pour obtenir le chiffre clé//
+$keyNumber = strlen($msg_1)/2;
+// Récupère ensuite la sous-chaîne de la longueur du chiffre-clé en commençant à partir du 6ème caractère //
+// substr ( string $string , int $start [, int $length ] ) : string => Retourne le segment de string défini par start et length //
+$characterShift = substr ($msg_1, 5, $keyNumber);
+// Remplace les chaînes '@#?' par un espace => substr = remplace les chaines de caractères //
+//$nouvellechaine = str_replace("mots","caractères","Chaîne de mots à remplacer."); //
+$Replace = str_replace ('@#?', ' ', $characterShift);
+// strrev — Inverse une chaîne //
+echo strrev ($Replace);
+
+
+$keyNumber = strlen($msg_2)/2;
+$characterShift = substr ($msg_2, 5, $keyNumber);
+$Replace = str_replace ('@#?', ' ', $characterShift);
+echo strrev ($Replace);
+
+$keyNumber = strlen($msg_3)/2;
+$characterShift = substr ($msg_3, 5, $keyNumber);
+$Replace = str_replace ('@#?', ' ', $characterShift);
+echo strrev ($Replace);
+
+?>
+
+wilder@wilder-ThinkPad-T440p:~/PhpstormProjects/untitled1$ php chainesDeCaractere.php 
+j'ai appristoutes les ficellesdes strings
